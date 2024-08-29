@@ -5,53 +5,57 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import javax.imageio.ImageIO;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import com.shashi.service.impl.ProductServiceImpl;
 
 @WebServlet("/ShowImage")
 public class ShowImage extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public ShowImage() {
-		super();
-	}
+    public ShowImage() {
+        super();
+    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		String prodId = request.getParameter("pid");
+        String prodId = request.getParameter("pid");
 
-		ProductServiceImpl dao = new ProductServiceImpl();
+        ProductServiceImpl dao = new ProductServiceImpl();
 
-		byte[] image = dao.getImage(prodId);
+        byte[] image = dao.getImage(prodId);
 
-		if (image == null) {
-			File fnew = new File(request.getServletContext().getRealPath("images/noimage.jpg"));
-			BufferedImage originalImage = ImageIO.read(fnew);
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			ImageIO.write(originalImage, "jpg", baos);
-			image = baos.toByteArray();
-		}
+        if (image == null) {
+            File fnew = new File(request.getServletContext().getRealPath("images/noimage.jpg"));
+            BufferedImage originalImage = ImageIO.read(fnew);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(originalImage, "jpg", baos);
+            image = baos.toByteArray();
+        }
 
-		ServletOutputStream sos = null;
+        response.setContentType("image/jpeg"); // Set the response content type to JPEG
+        ServletOutputStream sos = response.getOutputStream();
 
-		sos = response.getOutputStream();
+        sos.write(image);
+        sos.flush(); // Ensure all data is sent
+        sos.close(); // Close the stream
 
-		sos.write(image);
+    }
 
-	}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+        doGet(request, response);
+    }
 }
+

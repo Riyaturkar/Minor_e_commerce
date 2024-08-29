@@ -2,12 +2,12 @@ package com.shashi.srv;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import com.shashi.beans.UserBean;
 import com.shashi.service.impl.UserServiceImpl;
@@ -17,39 +17,41 @@ import com.shashi.service.impl.UserServiceImpl;
  */
 @WebServlet("/RegisterSrv")
 public class RegisterSrv extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		response.setContentType("text/html");
-		String userName = request.getParameter("username");
-		Long mobileNo = Long.parseLong(request.getParameter("mobile"));
-		String emailId = request.getParameter("email");
-		String address = request.getParameter("address");
-		int pinCode = Integer.parseInt(request.getParameter("pincode"));
-		String password = request.getParameter("password");
-		String confirmPassword = request.getParameter("confirmPassword");
-		String status = "";
-		if (password != null && password.equals(confirmPassword)) {
-			UserBean user = new UserBean(userName, mobileNo, emailId, address, pinCode, password);
+        response.setContentType("text/html");
+        String userName = request.getParameter("username");
+        Long mobileNo = Long.parseLong(request.getParameter("mobile"));
+        String emailId = request.getParameter("email");
+        String address = request.getParameter("address");
+        int pinCode = Integer.parseInt(request.getParameter("pincode"));
+        String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("confirmPassword");
+        String status;
 
-			UserServiceImpl dao = new UserServiceImpl();
+        if (password != null && password.equals(confirmPassword)) {
+            UserBean user = new UserBean(userName, mobileNo, emailId, address, pinCode, password);
 
-			status = dao.registerUser(user);
-		} else {
-			status = "Password not matching!";
-		}
+            UserServiceImpl dao = new UserServiceImpl();
 
-		RequestDispatcher rd = request.getRequestDispatcher("register.jsp?message=" + status);
+            status = dao.registerUser(user);
+        } else {
+            status = "Password not matching!";
+        }
 
-		rd.forward(request, response);
-	}
+        RequestDispatcher rd = request.getRequestDispatcher("register.jsp?message=" + status);
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+        rd.forward(request, response);
+    }
 
-		doGet(request, response);
-	}
-
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        doGet(request, response);
+    }
 }
+

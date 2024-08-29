@@ -2,48 +2,46 @@ package com.shashi.srv;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LogoutSrv
  */
 @WebServlet("/LogoutSrv")
 public class LogoutSrv extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public LogoutSrv() {
-		super();
+    public LogoutSrv() {
+        super();
+    }
 
-	}
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+        response.setContentType("text/html");
 
-		response.setContentType("text/html");
+        HttpSession session = request.getSession();
 
-		HttpSession session = request.getSession();
+        // Invalidate the session
+        session.invalidate();
 
-		session.setAttribute("username", null);
-		session.setAttribute("password", null);
-		session.setAttribute("usertype", null);
-		session.setAttribute("userdata", null);
+        // Forward the request to login.jsp with a logout message
+        RequestDispatcher rd = request.getRequestDispatcher("login.jsp?message=Successfully Logged Out!");
+        rd.forward(request, response);
+    }
 
-		RequestDispatcher rd = request.getRequestDispatcher("login.jsp?message=Successfully Logged Out!");
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-		rd.forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
-		doGet(request, response);
-	}
-
+        doGet(request, response);
+    }
 }
+
