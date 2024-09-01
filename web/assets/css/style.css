@@ -101,7 +101,7 @@ height: 60px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     position: relative;
-    border: 1px solid #F70E62;
+    border: 1px solid rgb(255, 255, 0);
     font-size:12px;
 }
 .chat-widget-right:after {

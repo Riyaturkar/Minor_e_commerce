@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
     pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*, com.shashi.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*" %>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*" %>
 <%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ellison Electronics</title>
+    <title>E-commerce</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"
@@ -18,7 +18,7 @@
     <script
         src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: black;">
 
     <%
         /* Checking the user credentials */
@@ -65,10 +65,10 @@
             for (ProductBean product : products) {
                 int cartQty = new CartServiceImpl().getCartItemCount(userName, product.getProdId());
             %>
-            <div class="col-sm-4" style='height: 350px;'>
-                <div class="thumbnail">
+            <div class="col-sm-4" style='height: 450px; '>
+                <div class="thumbnail" style="border-radius:50px">
                     <img src="./ShowImage?pid=<%=product.getProdId()%>" alt="Product"
-                        style="height: 150px; max-width: 180px">
+                        style="height: 250px; max-width: 180px">
                     <p class="productname"><%=product.getProdName()%>
                     </p>
                     <%
@@ -85,7 +85,7 @@
                         <%
                         if (cartQty == 0) {
                         %>
-                        <button type="submit"
+                        <button type="submit" style=" color-Blue"
                             formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1"
                             class="btn btn-success">Add to Cart</button>
                         &nbsp;&nbsp;&nbsp;
@@ -117,7 +117,7 @@
     </div>
     <!-- End of Product Items List -->
 
-    <jsp:include page="footer.html" />
+  
 
 </body>
 </html>

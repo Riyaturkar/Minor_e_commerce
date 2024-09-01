@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*, com.shashi.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
 <%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/changes.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color :  #85adad;">
 
     <%
         // Checking the user credentials
@@ -36,18 +36,18 @@
     </div>
 
     <!-- Start of Product Items List -->
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-hover table-sm">
-                <thead style="background-color: black; color: white; font-size: 14px; font-weight: bold;">
+    <div class="container" style="heigth:50px">
+        <div class="table-responsive" style="border-radius:30px; padding-top:10px; ">
+            <table class="table table-hover table-sm" style="border-radius:10px">
+                <thead style="background-color: white; color: white; font-size: 14px; font-weight: bold;">
                     <tr>
-                        <th>Picture</th>
-                        <th>ProductName</th>
-                        <th>OrderId</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Time</th>
-                        <th>Status</th>
+                        <th style="color:grey">Picture</th>
+                        <th style="color:grey">ProductName</th>
+                        <th style="color:grey">OrderId</th>
+                        <th style="color:grey">Quantity</th>
+                        <th style="color:grey">Price</th>
+                        <th style="color:grey">Time</th>
+                        <th style="color:grey">Status</th>
                     </tr>
                 </thead>
                 <tbody style="background-color: white; font-size: 15px; font-weight: bold;">
@@ -72,6 +72,6 @@
     </div>
     <!-- End of Product Items List -->
 
-    <jsp:include page="footer.html" />
+    
 </body>
 </html>

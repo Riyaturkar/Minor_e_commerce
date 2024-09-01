@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="com.shashi.service.impl.*, com.shashi.beans.*,com.shashi.service.*,java.util.*"%>
+	import="com.riya.service.impl.*,com.riya.beans.*,com.riya.service.*,java.util.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,7 +13,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: #85adad;">
 	<%
 	/* Checking the user credentials */
 	String userType = (String) session.getAttribute("usertype");
@@ -35,14 +35,12 @@
 
 	<jsp:include page="header.jsp" />
 
-	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">Shipped
-		Orders</div>
+	
 	<div class="container-fluid">
 		<div class="table-responsive ">
 			<table class="table table-hover table-sm">
 				<thead
-					style="background-color: #115884; color: white; font-size: 18px;">
+					style="; color: black; font-size: 18px;">
 					<tr>
 						<th>TransactionId</th>
 						<th>ProductId</th>
@@ -90,7 +88,7 @@
 					<%
 					if (count == 0) {
 					%>
-					<tr style="background-color: grey; color: white;">
+					<tr style=" color:#3D6263;">
 						<td colspan="7" style="text-align: center;">No Items
 							Available</td>
 
@@ -103,6 +101,6 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.html"%>
+	
 </body>
 </html>
