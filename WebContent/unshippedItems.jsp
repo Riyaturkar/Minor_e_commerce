@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="com.shashi.service.impl.*, com.shashi.beans.*,com.shashi.service.*,java.util.*"%>
+	import="com.riya.service.impl.*,com.riya.beans.*,com.riya.service.*,java.util.*"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -17,7 +17,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/changes.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color:#85adad;">
 	<%
 	/* Checking the user credentials */
 	String userType = (String) session.getAttribute("usertype");
@@ -37,23 +37,21 @@
 	%>
 
 	<jsp:include page="header.jsp" />
-
-	<div class="text-center"
-		style="color: green; font-size: 24px; font-weight: bold;">UnShipped
-		Orders</div>
+	
+	
 	<div class="container-fluid">
 		<div class="table-responsive ">
 			<table class="table table-hover table-sm">
 				<thead
-					style="background-color: #700fb7; color: white; font-size: 16px;">
+					style=": white; font-size: 16px;">
 					<tr>
-						<th>TransactionId</th>
-						<th>ProductId</th>
-						<th>User Email Id</th>
-						<th>Address</th>
-						<th>Quantity</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th style="color:black">TransactionId</th>
+						<th style="color:black">ProductId</th>
+						<th style="color:black">User Email Id</th>
+						<th style="color:black">Address</th>
+						<th style="color:black">Quantity</th>
+						<th style="color:black">Status</th>
+						<th style="color:black">Action</th>
 					</tr>
 				</thead>
 				<tbody style="background-color: white;">
@@ -84,7 +82,7 @@
 						<td>READY_TO_SHIP</td>
 						<td><a
 							href="ShipmentServlet?orderid=<%=order.getTransactionId()%>&amount=<%=order.getAmount()%>&userid=<%=userId%>&prodid=<%=order.getProductId()%>"
-							class="btn btn-success">SHIP NOW</a></td>
+							class="btn btn-success" style="background-color:#3D6263">SHIP NOW</a></td>
 					</tr>
 
 					<%
@@ -108,6 +106,6 @@
 		</div>
 	</div>
 
-	<%@ include file="footer.html"%>
+
 </body>
 </html>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="com.shashi.service.impl.*, com.shashi.service.*,com.shashi.beans.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
+	import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*,java.util.*,jakarta.servlet.ServletOutputStream,java.io.*"%>
 	<%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
@@ -19,7 +19,7 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: black;">
 
 	<%
 	/* Checking the user credentials */

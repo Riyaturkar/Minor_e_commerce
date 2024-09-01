@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*"%>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -18,23 +18,34 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body >
 	<!--Company Header Starting  -->
-	<div class="container-fluid text-center"
-		style="margin-top: 45px; background-color: #33cc33; color: white; padding: 5px;">
-		<h2>Ellison Electronics</h2>
-		<h6>We specialize in Electronics</h6>
-		<form class="form-inline" action="index.jsp" method="get">
+	<div class="container-fluid text-center""
+		style="margin-top: 35px; background-color: #85adad; color: white; padding: 29px; ">
+		<div style="display:flex; gap: 300px " >
+		
+		
+	   <div>
+		
+		<h2 align="left" text-color:white><a href="index.jsp">Products</a></h2>
+		</div>
+		
+		<div style="padding-left:300px;padding-top:20px">
+		
+		<form class="form-inline" action="index.jsp" method="get" align="center" 
+>
 			<div class="input-group">
-				<input type="text" class="form-control" size="50" name="search"
-					placeholder="Search Items" required>
-				<div class="input-group-btn">
-					<input type="submit" class="btn btn-danger" value="Search" />
-				</div>
-			</div>
+    <input type="text" class="form-control" size="50" name="search" style="border-radius:30px"
+        placeholder="Search Here" required>
+    <div class="input-group-btn">
+        <input type="submit" class="btn btn-danger" value="Search" style="background-color:green ; border-radius:20px" />
+    </div>
+</div>
+
 		</form>
+		</div>
 		<p align="center"
-			style="color: blue; font-weight: bold; margin-top: 5px; margin-bottom: 5px;"
+			style="color: blue;  padding-left:20px;font-weight: bold; margin-top: 5px; margin-bottom: 5px;"
 			id="message"></p>
 	</div>
 	<!-- Company Header Ending -->
@@ -46,33 +57,24 @@
 	%>
 
 	<!-- Starting Navigation Bar -->
-	<nav class="navbar navbar-default navbar-fixed-top">
-		<div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#3D6263">
+		<div class="container-fluid" >
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
+					data-target="#myNavbar" >
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.jsp"><span
-					class="glyphicon glyphicon-home">&nbsp;</span>Shopping Center</a>
+				
+					<a class="navbar-brand" href="userHome.jsp"><span
+					class="glyphicon glyphicon-home">&nbsp;</span>E-COMMERCE-SHOPPING APPLICATION</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="login.jsp">Login</a></li>
 					<li><a href="register.jsp">Register</a></li>
-					<li><a href="index.jsp">Products</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#">Category <span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu">
-							<li><a href="index.jsp?type=mobile">Mobiles</a></li>
-							<li><a href="index.jsp?type=tv">TVs</a></li>
-							<li><a href="index.jsp?type=laptop">Laptops</a></li>
-							<li><a href="index.jsp?type=camera">Camera</a></li>
-							<li><a href="index.jsp?type=speaker">Speakers</a></li>
-							<li><a href="index.jsp?type=tablet">Tablets</a></li>
-						</ul></li>
+					
+					
 				</ul>
 			</div>
 		</div>
@@ -82,7 +84,7 @@
 
 	int notf = new CartServiceImpl().getCartCount((String) session.getAttribute("username"));
 	%>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#3D6263">
 
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -91,22 +93,22 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
+				
 				<a class="navbar-brand" href="userHome.jsp"><span
-					class="glyphicon glyphicon-home">&nbsp;</span>Shopping Center</a>
+					class="glyphicon glyphicon-home">&nbsp;</span>E-commerce</a>
+					
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="userHome.jsp"><span
-							class="glyphicon glyphicon-home">Products</span></a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
+										<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Category <span class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<li><a href="userHome.jsp?type=mobile">Mobiles</a></li>
+							<li><a href="userHome.jsp?type=mobile">mobiles</a></li>
 							<li><a href="userHome.jsp?type=tv">TV</a></li>
-							<li><a href="userHome.jsp?type=laptop">Laptops</a></li>
-							<li><a href="userHome.jsp?type=camera">Camera</a></li>
+							<li><a href="userHome.jsp?type=laptop">Laptop</a></li>
+							<li><a href="userHome.jsp?type=camera">camera</a></li>
 							<li><a href="userHome.jsp?type=speaker">Speakers</a></li>
 							<li><a href="userHome.jsp?type=tablet">Tablets</a></li>
 						</ul></li>
@@ -139,7 +141,7 @@
 	<%
 	} else { //ADMIN HEADER
 	%>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#3D6263">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -148,11 +150,11 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="adminViewProduct.jsp"><span
-					class="glyphicon glyphicon-home">&nbsp;</span>Shopping Center</a>
+					class="glyphicon glyphicon-home">&nbsp;</span>E-commerce</a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="adminViewProduct.jsp">Products</a></li>
+					
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Category <span class="caret"></span>
 					</a>
@@ -189,3 +191,8 @@
 	<!-- End of Navigation Bar -->
 </body>
 </html>
+
+
+
+
+

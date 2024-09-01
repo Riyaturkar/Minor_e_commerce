@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*, com.shashi.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
 <%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: black;">
     <%
         /* Checking the user credentials */
         String userType = (String) session.getAttribute("usertype");
@@ -30,13 +30,13 @@
 
     <jsp:include page="header.jsp" />
 
-    <div class="text-center" style="color: green; font-size: 24px; font-weight: bold;">Stock Products</div>
-    <div class="container-fluid">
+    
+    <div class="container-fluid" style="border-radius:50px">
         <div class="table-responsive">
             <table class="table table-hover table-sm">
-                <thead style="background-color: #2c6c4b; color: white; font-size: 18px;">
+                <thead style=" color: black; font-size: 18px;">
                     <tr>
-                        <th>Image</th>
+                       
                         <th>ProductId</th>
                         <th>Name</th>
                         <th>Type</th>
@@ -46,15 +46,14 @@
                         <th colspan="2" style="text-align: center">Actions</th>
                     </tr>
                 </thead>
-                <tbody style="background-color: white; font-size: 16px;">
+                <tbody style="color:black; font-size: 16px;">
                     <%
                         ProductServiceImpl productDao = new ProductServiceImpl();
                         List<ProductBean> products = productDao.getAllProducts();
                         for (ProductBean product : products) {
                     %>
                     <tr>
-                        <td><img src="./ShowImage?pid=<%=product.getProdId()%>" style="width: 50px; height: 50px;"></td>
-                        <td><a href="./updateProduct.jsp?prodid=<%=product.getProdId()%>"><%=product.getProdId()%></a></td>
+                         <td><a href="./updateProduct.jsp?prodid=<%=product.getProdId()%>"><%=product.getProdId()%></a></td>
                         <%
                             String name = product.getProdName();
                             name = name.substring(0, Math.min(name.length(), 25)) + "..";
@@ -65,13 +64,13 @@
                         <td><%=new OrderServiceImpl().countSoldItem(product.getProdId())%></td>
                         <td><%=product.getProdQuantity()%></td>
                         <td>
-                            <form method="post">
-                                <button type="submit" formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>" class="btn btn-primary">Update</button>
+                            <form method="post" style="background-color:#3D6263">
+                                <button type="submit" formaction="updateProduct.jsp?prodid=<%=product.getProdId()%>" class="btn btn-primary"  style="background-color:#3D6263">Update</button>
                             </form>
                         </td>
                         <td>
-                            <form method="post">
-                                <button type="submit" formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>" class="btn btn-danger">Remove</button>
+                            <form method="post" style="background-color:#3D6263">
+                                <button type="submit" formaction="./RemoveProductSrv?prodid=<%=product.getProdId()%>" class="btn btn-danger"  style="background-color:#3D6263; border:none">Remove</button>
                             </form>
                         </td>
                     </tr>

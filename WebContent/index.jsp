@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*, com.shashi.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
 <%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ellison Electronics</title>
+    <title>E-commerce</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -14,7 +14,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color: black;">
 
     <%
         // Checking the user credentials
@@ -62,27 +62,27 @@
                 for (ProductBean product : products) {
                     int cartQty = new CartServiceImpl().getCartItemCount(userName, product.getProdId());
             %>
-            <div class="col-sm-4" style='height: 350px;'>
-                <div class="thumbnail">
+            <div class="col-sm-4" style='height: 350px; width:400px padding-left:40px'>
+                <div class="thumbnail" style="border-radius:50px;  ">
                     <img src="./ShowImage?pid=<%=product.getProdId()%>" alt="Product" style="height: 150px; max-width: 180px">
                     <p class="productname"><%=product.getProdName()%></p>
                     <%
                         String description = product.getProdInfo();
                         description = description.substring(0, Math.min(description.length(), 100));
                     %>
-                    <p class="productinfo"><%=description%>..</p>
-                    <p class="price">Rs <%=product.getProdPrice()%></p>
+                    
+                    <p class="price" style="color:black">Rs <%=product.getProdPrice()%></p>
                     <form method="post">
                         <%
                             if (cartQty == 0) {
                         %>
-                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1" class="btn btn-success">Add to Cart</button>
+                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1" class="btn btn-success "style ="background-color:#285A59"">Add to Cart</button>
                         &nbsp;&nbsp;&nbsp;
-                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1" class="btn btn-primary">Buy Now</button>
+                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=1" class="btn btn-primary"style ="background-color:#285A59">Buy Now</button>
                         <%
                             } else {
                         %>
-                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=0" class="btn btn-danger">Remove From Cart</button>
+                        <button type="submit" formaction="./AddtoCart?uid=<%=userName%>&pid=<%=product.getProdId()%>&pqty=0" class="btn btn-danger" style ="background-color:#285A59">Remove From Cart</button>
                         &nbsp;&nbsp;&nbsp;
                         <button type="submit" formaction="cartDetails.jsp" class="btn btn-success">Checkout</button>
                         <%
@@ -101,6 +101,6 @@
     </div>
     <!-- End of Product Items List -->
 
-    <jsp:include page="footer.html" />
+    
 </body>
 </html>

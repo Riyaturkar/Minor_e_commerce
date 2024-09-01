@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-<%@ page import="com.shashi.service.impl.*, com.shashi.service.*, com.shashi.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
+<%@ page import="com.riya.service.impl.*,com.riya.service.*,com.riya.beans.*, java.util.*, jakarta.servlet.ServletOutputStream, java.io.*"%>
 <%@ page import="jakarta.servlet.http.HttpServletRequest" %>
 <%@ page import="jakarta.servlet.http.HttpServletResponse" %>
 <%@ page import="jakarta.servlet.http.HttpSession" %>
@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body style="background-color: #E6F9E6;">
+<body style="background-color:  #85adad;">
 
     <%
         /* Checking the user credentials */
@@ -52,14 +52,14 @@
 
     <jsp:include page="header.jsp" />
 
-    <div class="text-center" style="color: green; font-size: 24px; font-weight: bold;">Cart Items</div>
+    
 
     <!-- Start of Product Items List -->
     <div class="container">
         <table class="table table-hover">
-            <thead style="background-color: #186188; color: white; font-size: 16px; font-weight: bold;">
+            <thead style="; color:#2F5052; font-size: 16px; font-weight: bold;">
                 <tr>
-                    <th>Picture</th>
+                    
                     <th>Products</th>
                     <th>Price</th>
                     <th>Quantity</th>
@@ -68,7 +68,7 @@
                     <th>Amount</th>
                 </tr>
             </thead>
-            <tbody style="background-color: white; font-size: 15px; font-weight: bold;">
+            <tbody style="color: #294B4C; font-size: 15px; font-weight: bold;">
                 <%
                     CartServiceImpl cart = new CartServiceImpl();
                     List<CartBean> cartItems = cart.getAllCartItems(userName);
@@ -83,7 +83,6 @@
                         if (prodQuantity > 0) {
                 %>
                 <tr>
-                    <td><img src="./ShowImage?pid=<%=product.getProdId()%>" style="width: 50px; height: 50px;"></td>
                     <td><%=product.getProdName()%></td>
                     <td><%=product.getProdPrice()%></td>
                     <td>
@@ -101,22 +100,22 @@
                         }
                     }
                 %>
-                <tr style="background-color: grey; color: white;">
+                <tr>
                     <td colspan="6" style="text-align: center;">Total Amount to Pay (in Rupees)</td>
                     <td><%=totAmount%></td>
                 </tr>
                 <%
                     if (totAmount != 0) {
                 %>
-                <tr style="background-color: grey; color: white;">
+                <tr style=" color: black;">
                     <td colspan="4" style="text-align: center;"></td>
                     <td><form method="post">
-                            <button formaction="userHome.jsp" style="background-color: black; color: white;">Cancel</button>
+                            <button formaction="userHome.jsp" style="background-color: #294B4C; color: white;">Cancel</button>
                         </form>
                     </td>
                     <td colspan="2" align="center">
                         <form method="post">
-                            <button style="background-color: blue; color: white;" formaction="payment.jsp?amount=<%=totAmount%>">Pay Now</button>
+                            <button style="background-color: #294B4C; color: white;" formaction="payment.jsp?amount=<%=totAmount%>">Pay Now</button>
                         </form>
                     </td>
                 </tr>
@@ -128,7 +127,7 @@
     </div>
     <!-- End of Product Items List -->
 
-    <jsp:include page="footer.html" />
+   
 </body>
 </html>
 
