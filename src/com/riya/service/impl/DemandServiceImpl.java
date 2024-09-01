@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.riya.beans.DemandBean;
 import com.riya.service.DemandService;
-import com.shashi.utility.DBUtil;
+import com.riya.utility.DBUtil;
 //This class is to process the demand items which are
 //not available at the time of purchase by any customer
 //the customer will receive mail once the product is avaible

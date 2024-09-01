@@ -1,4 +1,4 @@
-package com.shashi.utility;
+package com.riya.utility;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

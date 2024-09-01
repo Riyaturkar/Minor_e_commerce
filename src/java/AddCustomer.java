@@ -12,7 +12,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 
-import com.connection.DatabaseConnection;
+import com.riya.connection.DatabaseConnection;
 
 @WebServlet("/AddCustomer")
 public class AddCustomer extends HttpServlet {

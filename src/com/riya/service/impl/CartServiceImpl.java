@@ -11,7 +11,7 @@ import com.riya.beans.CartBean;
 import com.riya.beans.DemandBean;
 import com.riya.beans.ProductBean;
 import com.riya.service.CartService;
-import com.shashi.utility.DBUtil;
+import com.riya.utility.DBUtil;
 
 public class CartServiceImpl implements CartService {
 

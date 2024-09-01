@@ -12,8 +12,8 @@ import com.riya.beans.OrderBean;
 import com.riya.beans.OrderDetails;
 import com.riya.beans.TransactionBean;
 import com.riya.service.OrderService;
-import com.shashi.utility.DBUtil;
-import com.shashi.utility.MailMessage;
+import com.riya.utility.DBUtil;
+import com.riya.utility.MailMessage;
 
 public class OrderServiceImpl implements OrderService {
 

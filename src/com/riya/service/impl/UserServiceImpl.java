@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import com.riya.beans.UserBean;
 import com.riya.constants.IUserConstants;
 import com.riya.service.UserService;
-import com.shashi.utility.DBUtil;
-import com.shashi.utility.MailMessage;
+import com.riya.utility.DBUtil;
+import com.riya.utility.MailMessage;
 
 public class UserServiceImpl implements UserService {
 
