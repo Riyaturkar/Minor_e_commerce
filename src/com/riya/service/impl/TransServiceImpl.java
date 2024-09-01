@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.riya.service.TransService;
-import com.shashi.utility.DBUtil;
+import com.riya.utility.DBUtil;
 
 public class TransServiceImpl implements TransService {
 

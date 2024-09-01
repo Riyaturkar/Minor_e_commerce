@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 
 import com.riya.service.impl.OrderServiceImpl;
 import com.riya.service.impl.UserServiceImpl;
-import com.shashi.utility.MailMessage;
+import com.riya.utility.MailMessage;
 
 /**
  * Servlet implementation class ShipmentServlet

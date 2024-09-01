@@ -2,14 +2,15 @@ package java;
 
 import java.io.IOException;
 import java.sql.ResultSet;
+
+import com.riya.connection.DatabaseConnection;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-import com.connection.DatabaseConnection;
 
 @WebServlet("/CustomerLogin")
 public class CustomerLogin extends HttpServlet {

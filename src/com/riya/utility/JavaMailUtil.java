@@ -1,4 +1,4 @@
-package com.shashi.utility;
+package com.riya.utility;
 
 import java.util.Properties;
 import java.util.ResourceBundle;

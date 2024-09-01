@@ -2,7 +2,7 @@
 <%@ page import="jakarta.servlet.*" %>
 <%@ page import="jakarta.servlet.http.*" %>
 <%@ page import="java.sql.*"%>
-<%@ page import="com.connection.*"%>
+<%@ page import="com.riya.connection.*"%>
 
 <!DOCTYPE html>
 <html>

@@ -1,4 +1,4 @@
-package com.shashi.utility;
+package com.riya.utility;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -11,9 +11,9 @@ import java.util.List;
 import com.riya.beans.DemandBean;
 import com.riya.beans.ProductBean;
 import com.riya.service.ProductService;
-import com.shashi.utility.DBUtil;
-import com.shashi.utility.IDUtil;
-import com.shashi.utility.MailMessage;
+import com.riya.utility.DBUtil;
+import com.riya.utility.IDUtil;
+import com.riya.utility.MailMessage;
 
 public class ProductServiceImpl implements ProductService {
 

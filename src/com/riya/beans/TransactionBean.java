@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
-import com.shashi.utility.IDUtil;
+import com.riya.utility.IDUtil;
 
 @SuppressWarnings("serial")
 public class TransactionBean implements Serializable {

@@ -1,4 +1,4 @@
-package com.connection;
+package com.riya.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
